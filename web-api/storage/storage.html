@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storage</title>
+</head>
+<body>
+    <h1>Storage Javascript</h1>
+    <button onclick="clickCounter()" type="button">CLICK ME</button>
+    <p id="counter-wrapper">You have clicked the button: <span id="counter">0</span> time(s)</p>
+    <script>
+        function clickCounter() {
+            if (typeof(Storage) !== "undefined") {
+                if (localStorage.clickcount) {
+                    localStorage.clickcount = Number(localStorage.clickcount)+1;
+                } else {
+                    localStorage.clickcount = 1;
+                }
+                document.getElementById("counter").innerHTML = localStorage.clickcount;
+            }
+            else {
+                document.getElementById("counter-wrapper").innerHTML = "Sorry, your browser does not support web storage...";
+            }
+        }
+    </script>
+</body>
+</html>
